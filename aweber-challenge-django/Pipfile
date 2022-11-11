@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-rest-framework = "*"
+drf-spectacular = "*"
+black = "*"
+pep8 = "*"
+flake8 = "*"
+bandit = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
