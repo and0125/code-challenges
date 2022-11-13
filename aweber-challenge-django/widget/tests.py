@@ -24,15 +24,31 @@ class URLTestCases(TestCase):
         self.assertEqual(response.status_code,200)
 
 class ViewSetTest(TestCase):
-    def test_list_view_set(self):
+    def test_list_view(self):
         api_request = APIRequestFactory().get("")
-        widget = Widget.objects.create(name="widget", number_of_parts=3)
-        detail_view = WidgetViewSet.as_view({'get': 'retrieve'})
-        response = detail_view(api_request, pk=widget.pk)
+
+        widget1 = Widget.objects.create(name="widget", number_of_parts=3)
+        widget2 = Widget.objects.create(name="test", number_of_parts=13)
+        widget3 = Widget.objects.create(name="done", number_of_parts=322)
+
+        list_view = WidgetViewSet.as_view({'get': 'list'})
+        response = list_view(api_request)
         self.assertEqual(response.status_code, 200)
         self.assertTrue(len(response.data), 1)
 
-    def test_create_view_set(self):
-        response = APIRequestFactory().post("", {"name":"widget", "number_of_parts":3} )
-        self.assertEqual(response.status_code, 201)
-        self.assertTrue(len(response.data), 1)
+    def test_detail_view(self):
+        pass
+
+    def test_update_view(self):
+        pass 
+
+    def test_delete_view(self):
+        pass
+
+
+
+    # def test_create_view_set(self):
+    #     response = APIRequestFactory().post("", {"name":"widget", "number_of_parts":3} )
+    #     create_view = WidgetViewSet.as_view({'post': 'create'})
+    #     self.assertEqual(response.status_code, 201)
+    #     self.assertTrue(len(response.data), 1)
