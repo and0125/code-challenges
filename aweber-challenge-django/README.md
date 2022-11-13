@@ -18,7 +18,11 @@ CRUD operations can either be performed in three ways:
 
 - Using the browsable API endpoint at `localhost:8000`
 - Sending HTTP requests to `localhost:8000` using postman, curl, or any similar method
-- By going to the admin console for this django server, at `localhost:8000/admin`. Must have administrative credentials to access this console.
+- By going to the admin console for this django server, at `localhost:8000/admin`.
+
+### Administator Access
+
+To access the admin console, you must establish an administrator account, which can be done from the command line with the following command: `python manage.py createsuperuser`.
 
 ## API Documentation
 
