@@ -1,14 +1,13 @@
-from rest_framework import viewsets
+from rest_framework import generics
 from .models import Widget
 from .serializers import WidgetSerializer
 
-# Create your views here.
+
+class WidgetListView(generics.ListCreateAPIView):
+    queryset = Widget.objects.all()
+    serializer_class = WidgetSerializer
 
 
-class WidgetViewSet(viewsets.ModelViewSet):
-    """
-    A simple ViewSet for viewing and editing widget objects.
-    """
-
+class WidgetDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Widget.objects.all()
     serializer_class = WidgetSerializer

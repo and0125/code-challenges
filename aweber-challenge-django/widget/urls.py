@@ -1,6 +1,7 @@
-from .views import WidgetViewSet
-from rest_framework.routers import DefaultRouter
+from .views import WidgetListView, WidgetDetailView
+from django.urls import path
 
-router = DefaultRouter()
-router.register(r"", WidgetViewSet, basename="widget")
-urlpatterns = router.urls
+urlpatterns = [
+    path("", WidgetListView.as_view(), name="widget-list"),
+    path("<int:pk>", WidgetDetailView.as_view(), name="widget-detail"),
+]
