@@ -1,9 +1,5 @@
-import unittest
 from django.test import TestCase
 from rest_framework.test import APIClient
-
-from .serializers import WidgetSerializer
-from .views import WidgetListView, WidgetDetailView
 from .models import Widget
 
 
